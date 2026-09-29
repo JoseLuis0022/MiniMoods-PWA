@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from '../components/Icon.svelte'
-  import { ICON_LEFT, ICON_RIGHT } from '../lib/icons'
+  import { ICON_IMPORT, ICON_LEFT, ICON_RIGHT } from '../lib/icons'
   import { MOODS } from '../lib/moods'
   import { burstFrom } from '../lib/confetti'
   import { bulkUpsert } from '../lib/db'
@@ -10,6 +10,8 @@
 
   const REPO = 'https://github.com/JoseLuis0022/MiniMoods-PWA'
   const ORIGINAL_REPO = 'https://github.com/CampbellMG/MiniMoods'
+  const AUTHOR = 'José Luis Macedo Escamilla'
+  const AUTHOR_PROFILE = 'https://github.com/JoseLuis0022'
 
   const rtl = document.documentElement.dir === 'rtl'
 
@@ -83,8 +85,14 @@
     <p class="version">{__APP_VERSION__}</p>
   </div>
 
-  <a class="card link pressable" href="{REPO}/issues" target="_blank" rel="noopener">{t('contact_us')}</a>
+  <a class="card link pressable" href="{REPO}/issues" target="_blank" rel="noopener">
+    <span>{t('contact_us')}</span>
+    <span class="subtitle">{AUTHOR}</span>
+  </a>
   <a class="card link pressable" href={REPO} target="_blank" rel="noopener">{t('contribute')}</a>
+  <a class="card link pressable" href={AUTHOR_PROFILE} target="_blank" rel="noopener">
+    {t('pwa_credit', { name: AUTHOR })}
+  </a>
   <a class="card link pressable" href={ORIGINAL_REPO} target="_blank" rel="noopener">{t('credit')}</a>
 
   <hr />
@@ -108,11 +116,12 @@
 
     <div class="card setting">
       <h2>{t('data')}</h2>
-      <label class="option file pressable">
+      <label class="file">
         <input bind:this={fileInput} type="file" accept=".csv,text/csv,text/plain" onchange={handleImport} />
+        <Icon path={ICON_IMPORT} size={24} />
         <span>{t('import')}</span>
       </label>
-      <p class="status" aria-live="polite">{importMessage}</p>
+      <p class="status" class:empty={!importMessage} aria-live="polite">{importMessage}</p>
     </div>
   </section>
 </main>
@@ -155,6 +164,13 @@
   .link {
     display: block;
     padding: 16px;
+  }
+
+  .subtitle {
+    display: block;
+    margin-top: 2px;
+    font-size: 14px;
+    opacity: 0.7;
   }
 
   .card + .card {
@@ -208,8 +224,23 @@
   }
 
   .file {
+    clear: both;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 4px;
+    padding: 12px 16px;
     border-radius: 10px;
-    padding: 10px 8px;
+    background: var(--color-button);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+  }
+
+  .file:active {
+    background: var(--color-button-pressed);
+    transform: scale(0.98);
   }
 
   .file input {
@@ -224,8 +255,12 @@
   }
 
   .status {
-    margin: 4px 0 0;
-    min-height: 1.4em;
+    margin: 12px 0 0;
     font-size: 14px;
+    text-align: center;
+  }
+
+  .status.empty {
+    margin: 0;
   }
 </style>
