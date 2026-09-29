@@ -2,8 +2,18 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <script>
+      // Con rutas relativas, "/MiniMoods" (sin diagonal final) resolvería los archivos contra
+      // la raíz del dominio. Se corrige a "/MiniMoods/" antes de cargar nada más.
+      ;(function () {
+        var path = location.pathname
+        if (!path.endsWith('/') && !/\.[a-z0-9]+$/i.test(path)) {
+          location.replace(path + '/' + location.search + location.hash)
+        }
+      })()
+    </script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#FBFBFB" />
     <meta name="apple-mobile-web-app-capable" content="yes" />

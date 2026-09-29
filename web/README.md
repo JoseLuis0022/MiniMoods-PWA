@@ -30,6 +30,14 @@ npm run preview  # sirve dist/ localmente
 
 `npm run build` genera `dist/`, un sitio estático. Súbelo a cualquier servidor web (por ejemplo, Caddy o Nginx en un VPS).
 
+El build usa rutas **relativas**, así que el mismo `dist/` funciona tanto en la raíz de un dominio (`https://moods.tudominio.com/`) como en una subcarpeta (`https://sites.imperioon.com/MiniMoods/`), sin recompilar. Si alguien entra sin la diagonal final (`/MiniMoods`), la página se redirige sola a `/MiniMoods/`.
+
+Si prefieres fijar una ruta absoluta:
+
+```bash
+BASE_PATH=/MiniMoods/ npm run build
+```
+
 Requisitos para que funcione como PWA:
 
 - **HTTPS** (obligatorio para el service worker y para poder instalarla).
