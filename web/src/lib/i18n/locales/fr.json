@@ -1,0 +1,16 @@
+{
+  "no_moods": "Aucune humeur disponible",
+  "export": "Exporter",
+  "contact_us": "Contactez-nous",
+  "contribute": "Contribuer",
+  "very_happy": "Très heureux",
+  "neutral": "Neutre",
+  "very_sad": "Très triste",
+  "sad": "Triste",
+  "happy": "Heureux",
+  "settings": "Paramètres",
+  "theme": "Thème",
+  "system_default": "Par défaut du système",
+  "light": "Clair",
+  "dark": "Sombre"
+}

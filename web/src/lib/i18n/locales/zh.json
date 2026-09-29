@@ -1,0 +1,16 @@
+{
+  "no_moods": "没有可用的情绪",
+  "export": "出口",
+  "contact_us": "联系我们",
+  "contribute": "贡献",
+  "very_happy": "很高兴",
+  "neutral": "中性的",
+  "very_sad": "很心痛",
+  "sad": "伤心",
+  "happy": "快乐的",
+  "settings": "设置",
+  "theme": "主题",
+  "system_default": "系统默认",
+  "light": "光",
+  "dark": "黑暗的"
+}
