@@ -5,10 +5,21 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#FBFBFB" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1E1E1E" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FBFBFB" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="description" content="Registro de ánimo minimalista, sin anuncios y con control total de tus datos." />
     <title>Mini Moods</title>
+    <script>
+      // Aplica el tema antes de pintar para evitar un parpadeo de color.
+      ;(function () {
+        var pref = 'system'
+        try { pref = localStorage.getItem('mini-moods:theme') || 'system' } catch (e) {}
+        var dark = pref === 'dark' || (pref !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', dark ? '#25292E' : '#FBFBFB')
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>
