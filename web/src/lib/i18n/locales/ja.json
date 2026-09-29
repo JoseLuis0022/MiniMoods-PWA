@@ -1,0 +1,16 @@
+{
+  "no_moods": "利用できません気分",
+  "export": "書き出す",
+  "contact_us": "お問い合わせ",
+  "contribute": "助ける",
+  "very_happy": "非常に満足",
+  "neutral": "中性",
+  "very_sad": "とても悲しい",
+  "sad": "悲しい",
+  "happy": "ハッピー",
+  "settings": "設定",
+  "theme": "テーマ",
+  "system_default": "システムのデフォルト",
+  "light": "光",
+  "dark": "闇"
+}

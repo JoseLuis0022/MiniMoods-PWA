@@ -1,0 +1,16 @@
+{
+  "no_moods": "Keine Stimmungen verfügbar",
+  "export": "Exportieren",
+  "contact_us": "Kontaktiere uns",
+  "contribute": "Beitragen",
+  "very_happy": "Sehr glücklich",
+  "neutral": "Neutral",
+  "very_sad": "Sehr traurig",
+  "sad": "Traurig",
+  "happy": "Glücklich",
+  "settings": "Einstellungen",
+  "theme": "Design",
+  "system_default": "Systemstandard",
+  "light": "Hell",
+  "dark": "Dunkel"
+}
